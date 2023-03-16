@@ -17,3 +17,8 @@ _Other tools:_
 
 -   Vitest
 -   JSDoc
+
+## Assumptions
+
+-   Assume that a team can only exist on one game in the scoreboard
+-   Assume that scores shoud be positive numbers
