@@ -16,3 +16,4 @@ This project was built with [Vite](https://vitejs.dev/). I always been curious a
 _Other tools:_
 
 -   Vitest
+-   JSDoc
