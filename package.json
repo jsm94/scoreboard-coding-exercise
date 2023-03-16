@@ -11,6 +11,9 @@
     "coverage": "vitest coverage"
   },
   "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "prettier": "^2.8.4",
     "vite": "^4.2.0",
     "vitest": "^0.29.3"
   }
