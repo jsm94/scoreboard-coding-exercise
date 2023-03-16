@@ -22,7 +22,13 @@ class ScoreBoard extends IScoreBoard {
             throw new Error(
                 'Scoreboard: A game already have some of those teams'
             )
-        this.games.push({ homeTeam, awayTeam, homeScore: 0, awayScore: 0 })
+        this.games.push({
+            homeTeam,
+            awayTeam,
+            homeScore: 0,
+            awayScore: 0,
+            timestamp: new Date(),
+        })
     }
 
     /**
