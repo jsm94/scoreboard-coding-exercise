@@ -39,5 +39,25 @@ describe('Score Board should', () => {
             scoreBoard.finishGame('Mexico', 'Canada')
             expect(scoreBoard.getGames().length).toBe(0)
         })
+
+        it('when not exists, there is nothing to remove', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            scoreBoard.finishGame('Germany', 'France')
+            expect(scoreBoard.getGames().length).toBe(1)
+        })
+    })
+
+    describe('Update score', () => {
+        it('when exists, update the game score', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            scoreBoard.updateScore('Mexico', 'Canada', 0, 5)
+            const mockedGameScore = {
+                homeTeam: 'Mexico',
+                awayTeam: 'Canada',
+                homeScore: 0,
+                awayScore: 5,
+            }
+            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
+        })
     })
 })

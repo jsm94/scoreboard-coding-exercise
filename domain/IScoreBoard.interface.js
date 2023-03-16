@@ -26,6 +26,15 @@ class IScoreBoard {
      * @param {string} awayTeam
      */
     finishGame(homeTeam, awayTeam) {}
+
+    /**
+     * Update a game score
+     * @param {string} homeTeam
+     * @param {string} awayTeam
+     * @param {number} homeScore
+     * @param {number} awayScore
+     */
+    updateScore(homeTeam, awayTeam, homeScore, awayScore) {}
 }
 
 export default IScoreBoard

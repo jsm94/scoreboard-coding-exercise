@@ -31,11 +31,32 @@ class ScoreBoard extends IScoreBoard {
      */
     finishGame = (homeTeam, awayTeam) => {
         this.games = this.games.filter(
-            (game) =>
-                homeTeam.concat(awayTeam) !==
-                game.homeTeam.concat(game.awayTeam)
+            (game) => !this._matchGame({ homeTeam, awayTeam }, game)
         )
     }
+
+    /**
+     * @param {string} homeTeam
+     * @param {string} awayTeam
+     * @param {number} homeScore
+     * @param {number} awayScore
+     */
+    updateScore = (homeTeam, awayTeam, homeScore, awayScore) => {
+        this.games = this.games.map((game) =>
+            this._matchGame({ homeTeam, awayTeam }, game)
+                ? { ...game, homeScore, awayScore }
+                : game
+        )
+    }
+
+    /**
+     * Check if two games are equals
+     * @param {Object} leftGame
+     * @param {Object} rightGame
+     */
+    _matchGame = (leftGame, rightGame) =>
+        leftGame.homeTeam.concat(leftGame.awayTeam) ===
+        rightGame.homeTeam.concat(rightGame.awayTeam)
 
     /**
      * Check if some of a pair of teams from a game are in the scoreboard
