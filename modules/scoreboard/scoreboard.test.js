@@ -59,5 +59,24 @@ describe('Score Board should', () => {
             }
             expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
         })
+
+        it('when not exists, there is nothing to change', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            scoreBoard.updateScore('Germany', 'France', 0, 5)
+            const mockedGameScore = {
+                homeTeam: 'Mexico',
+                awayTeam: 'Canada',
+                homeScore: 0,
+                awayScore: 0,
+            }
+            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
+        })
+
+        it('when scores are negative numbers, throws an error', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            expect(() =>
+                scoreBoard.updateScore('Mexico', 'Canada', 0, -5)
+            ).toThrow()
+        })
     })
 })

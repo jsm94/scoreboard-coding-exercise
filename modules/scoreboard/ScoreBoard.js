@@ -42,6 +42,8 @@ class ScoreBoard extends IScoreBoard {
      * @param {number} awayScore
      */
     updateScore = (homeTeam, awayTeam, homeScore, awayScore) => {
+        if (homeScore < 0 || awayScore < 0)
+            throw new Error('Scoreboard: score should be positive number')
         this.games = this.games.map((game) =>
             this._matchGame({ homeTeam, awayTeam }, game)
                 ? { ...game, homeScore, awayScore }
