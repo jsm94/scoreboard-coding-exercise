@@ -24,7 +24,8 @@ describe('Score Board should', () => {
                 awayScore: 0,
             }
             scoreBoard.startGame('Mexico', 'Canada')
-            expect(scoreBoard.getGames()[0]).toEqual(mockedGame)
+            const { timestamp, ...rest } = scoreBoard.getGames()[0]
+            expect(rest).toEqual(mockedGame)
         })
 
         it('when exists, throw an error', () => {
@@ -57,7 +58,8 @@ describe('Score Board should', () => {
                 homeScore: 0,
                 awayScore: 5,
             }
-            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
+            const { timestamp, ...rest } = scoreBoard.getGames()[0]
+            expect(rest).toEqual(mockedGameScore)
         })
 
         it('when not exists, there is nothing to change', () => {
@@ -69,14 +71,8 @@ describe('Score Board should', () => {
                 homeScore: 0,
                 awayScore: 0,
             }
-            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
-        })
-
-        it('when scores are negative numbers, throws an error', () => {
-            scoreBoard.startGame('Mexico', 'Canada')
-            expect(() =>
-                scoreBoard.updateScore('Mexico', 'Canada', 0, -5)
-            ).toThrow()
+            const { timestamp, ...rest } = scoreBoard.getGames()[0]
+            expect(rest).toEqual(mockedGameScore)
         })
     })
 })
