@@ -26,5 +26,16 @@ describe('Score Board should', () => {
             scoreBoard.startGame('Mexico', 'Canada')
             expect(scoreBoard.getGames()[0]).toEqual(mockedGame)
         })
+
+        it('when exists, throw an error', () => {
+            const mockedGame = {
+                homeTeam: 'Mexico',
+                awayTeam: 'Canada',
+                homeScore: 0,
+                awayScore: 0,
+            }
+            scoreBoard.startGame('Mexico', 'Canada')
+            expect(() => scoreBoard.startGame('Mexico', 'Canada')).toThrow()
+        })
     })
 })
