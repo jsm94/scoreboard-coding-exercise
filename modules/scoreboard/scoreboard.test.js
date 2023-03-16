@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, test } from 'vitest'
 import ScoreBoard from './ScoreBoard'
 
 /**
@@ -28,14 +28,16 @@ describe('Score Board should', () => {
         })
 
         it('when exists, throw an error', () => {
-            const mockedGame = {
-                homeTeam: 'Mexico',
-                awayTeam: 'Canada',
-                homeScore: 0,
-                awayScore: 0,
-            }
             scoreBoard.startGame('Mexico', 'Canada')
             expect(() => scoreBoard.startGame('Mexico', 'Canada')).toThrow()
+        })
+    })
+
+    describe('Finish a game', () => {
+        it('when exists, remove from the scoreboard', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            scoreBoard.finishGame('Mexico', 'Canada')
+            expect(scoreBoard.getGames().length).toBe(0)
         })
     })
 })

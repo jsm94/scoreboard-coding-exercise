@@ -19,6 +19,13 @@ class IScoreBoard {
      * @param {string} awayTeam
      */
     startGame(homeTeam, awayTeam) {}
+
+    /**
+     * Finish a game, removing from the score board
+     * @param {string} homeTeam
+     * @param {string} awayTeam
+     */
+    finishGame(homeTeam, awayTeam) {}
 }
 
 export default IScoreBoard

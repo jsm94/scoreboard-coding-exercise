@@ -26,6 +26,18 @@ class ScoreBoard extends IScoreBoard {
     }
 
     /**
+     * @param {string} homeTeam
+     * @param {string} awayTeam
+     */
+    finishGame = (homeTeam, awayTeam) => {
+        this.games = this.games.filter(
+            (game) =>
+                homeTeam.concat(awayTeam) !==
+                game.homeTeam.concat(game.awayTeam)
+        )
+    }
+
+    /**
      * Check if some of a pair of teams from a game are in the scoreboard
      * @param {string} homeTeam
      * @param {string} awayTeam
