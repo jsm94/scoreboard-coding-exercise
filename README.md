@@ -15,11 +15,11 @@ This project was built with [Vite](https://vitejs.dev/). I always been curious a
 
 _Other tools:_
 
--   Vitest
--   JSDoc
+-   Vitest - it's fast
+-   JSDoc - provide documentation, autocompletion and soft type check
 
 ## Assumptions
 
 -   Assume that a team can only exist on one game in the scoreboard
--   Assume that scores shoud be positive numbers
+-   Assume that scores should be positive numbers
 -   Assume that the item's index on the scoreboard represents its position added to the system
