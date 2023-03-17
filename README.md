@@ -23,3 +23,12 @@ _Other tools:_
 -   Assume that a team can only exist on one game in the scoreboard
 -   Assume that scores should be positive numbers
 -   Assume that the item's index on the scoreboard represents its position added to the system
+
+## Setup proyect
+
+1. Clone the repository
+2. execute -> `npm install`
+
+_execute tests_ -> `npm run test`
+_execute coverage report_ -> `npm run test:coverage`
+_show example with simple score board module summary implementation_ -> `npm run dev`
