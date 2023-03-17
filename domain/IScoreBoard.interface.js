@@ -3,7 +3,7 @@
  */
 class IScoreBoard {
     /**
-     * @type {Object[]}
+     * @type {import("./Game.model").Game[]}
      */
     games
 

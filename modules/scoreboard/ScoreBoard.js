@@ -1,6 +1,10 @@
 import IScoreBoard from '../../domain/IScoreBoard.interface'
 
 /**
+ * @typedef {import('../../domain/Game.model').Game} Game
+ */
+
+/**
  * Class that implements a scoreboard
  * @class
  * @implements {IScoreBoard}
@@ -63,8 +67,8 @@ class ScoreBoard extends IScoreBoard {
 
     /**
      * Comparator by total score
-     * @param {Object} a
-     * @param {Object} b
+     * @param {Game} a
+     * @param {Game} b
      * @returns {number}
      */
     _sortByTotalScore = (a, b) => {
@@ -78,7 +82,7 @@ class ScoreBoard extends IScoreBoard {
 
     /**
      * Returns a summary as a string list of the score board
-     * @param {Object[]} games
+     * @param {Game[]} games
      * @returns {string}
      */
     _getSummary = (games) =>
@@ -93,8 +97,8 @@ class ScoreBoard extends IScoreBoard {
 
     /**
      * Check if two games are equals
-     * @param {Object} leftGame
-     * @param {Object} rightGame
+     * @param {Game} leftGame
+     * @param {Game} rightGame
      */
     _matchGame = (leftGame, rightGame) =>
         leftGame.homeTeam.concat(leftGame.awayTeam) ===
