@@ -22,3 +22,4 @@ _Other tools:_
 
 -   Assume that a team can only exist on one game in the scoreboard
 -   Assume that scores shoud be positive numbers
+-   Assume that the item's index on the scoreboard represents its position added to the system
