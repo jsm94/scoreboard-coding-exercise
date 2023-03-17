@@ -74,6 +74,15 @@ describe('Score Board should', () => {
         })
 
         it('when scores are negative numbers, throws an error', () => {
+            scoreBoard.startGame('Mexico', 'Canada')
+            expect(() =>
+                scoreBoard.updateScore('Germany', 'France', 0, -5)
+            ).toThrow()
+        })
+    })
+
+    describe('Get summary by total score', () => {
+        it('should print a summary', () => {
             setupScoreBoard(scoreBoard)
             const mockedSummary =
                 '1. Uruguay 6 - Italy 6\n2. Spain 10 - Brazil 2\n3. Mexico 0 - Canada 5\n4. Argentina 3 - Australia 1\n5. Germany 2 - France 2'
