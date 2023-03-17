@@ -1,7 +1,8 @@
+// @ts-nocheck
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { setupFootballWorldCupScoreBoard } from './scoreboard.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -11,9 +12,10 @@ document.querySelector('#app').innerHTML = `
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+    <h1>Hello!</h1>
+    <h2>This is the Football World Cup Score Board</h2>
+    <h3>summary by total score implementation</h3>
+    <div id="scoreboard" class="card">
     </div>
     <p class="read-the-docs">
       Click on the Vite logo to learn more
@@ -21,4 +23,4 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
+setupFootballWorldCupScoreBoard(document.querySelector('#scoreboard'))
