@@ -57,22 +57,39 @@ class ScoreBoard extends IScoreBoard {
     }
 
     getSummaryByTotalScore = () => {
-        const sortedByTotalScore = this.games.sort((a, b) => {
-            const aTotalScore = a.homeScore + a.awayScore
-            const bTotalScore = b.homeScore + b.awayScore
-            return (
-                bTotalScore - aTotalScore ||
-                this.games.indexOf(b) - this.games.indexOf(a)
-            )
-        })
-        const summary = sortedByTotalScore.map((game, index) => {
-            const ln = index ? '\n' : ''
-            return `${ln}${index + 1}. ${game.homeTeam} ${game.homeScore} - ${
-                game.awayTeam
-            } ${game.awayScore}`
-        })
-        return summary.join('')
+        const sortedByTotalScore = [...this.games].sort(this._sortByTotalScore)
+        return this._getSummary(sortedByTotalScore)
     }
+
+    /**
+     * Comparator by total score
+     * @param {Object} a
+     * @param {Object} b
+     * @returns {number}
+     */
+    _sortByTotalScore = (a, b) => {
+        const aTotalScore = a.homeScore + a.awayScore
+        const bTotalScore = b.homeScore + b.awayScore
+        return (
+            bTotalScore - aTotalScore ||
+            this.games.indexOf(b) - this.games.indexOf(a)
+        )
+    }
+
+    /**
+     * Returns a summary as a string list of the score board
+     * @param {Object[]} games
+     * @returns {string}
+     */
+    _getSummary = (games) =>
+        games
+            .map((game, index) => {
+                const ln = index ? '\n' : ''
+                return `${ln}${index + 1}. ${game.homeTeam} ${
+                    game.homeScore
+                } - ${game.awayTeam} ${game.awayScore}`
+            })
+            .join('')
 
     /**
      * Check if two games are equals
