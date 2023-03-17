@@ -29,6 +29,6 @@ _Other tools:_
 1. Clone the repository
 2. execute -> `npm install`
 
-_execute tests_ -> `npm run test`
-_execute coverage report_ -> `npm run test:coverage`
-_show example with simple score board module summary implementation_ -> `npm run dev`
+-   _execute tests_ -> `npm run test`
+-   _execute coverage report_ -> `npm run test:coverage`
+-   _show example with simple score board module summary implementation_ -> `npm run dev`
