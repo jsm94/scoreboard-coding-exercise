@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, test } from 'vitest'
+import { setupScoreBoard } from '../../config/setupData'
 import ScoreBoard from './ScoreBoard'
 
 /**
@@ -24,8 +25,7 @@ describe('Score Board should', () => {
                 awayScore: 0,
             }
             scoreBoard.startGame('Mexico', 'Canada')
-            const { timestamp, ...rest } = scoreBoard.getGames()[0]
-            expect(rest).toEqual(mockedGame)
+            expect(scoreBoard.getGames()[0]).toEqual(mockedGame)
         })
 
         it('when exists, throw an error', () => {
@@ -58,8 +58,7 @@ describe('Score Board should', () => {
                 homeScore: 0,
                 awayScore: 5,
             }
-            const { timestamp, ...rest } = scoreBoard.getGames()[0]
-            expect(rest).toEqual(mockedGameScore)
+            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
         })
 
         it('when not exists, there is nothing to change', () => {
@@ -71,8 +70,15 @@ describe('Score Board should', () => {
                 homeScore: 0,
                 awayScore: 0,
             }
-            const { timestamp, ...rest } = scoreBoard.getGames()[0]
-            expect(rest).toEqual(mockedGameScore)
+            expect(scoreBoard.getGames()[0]).toEqual(mockedGameScore)
+        })
+
+        it('when scores are negative numbers, throws an error', () => {
+            setupScoreBoard(scoreBoard)
+            const mockedSummary =
+                '1. Uruguay 6 - Italy 6\n2. Spain 10 - Brazil 2\n3. Mexico 0 - Canada 5\n4. Argentina 3 - Australia 1\n5. Germany 2 - France 2'
+            const summary = scoreBoard.getSummaryByTotalScore()
+            expect(summary).toBe(mockedSummary)
         })
     })
 })

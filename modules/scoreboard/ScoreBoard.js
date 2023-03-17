@@ -27,7 +27,6 @@ class ScoreBoard extends IScoreBoard {
             awayTeam,
             homeScore: 0,
             awayScore: 0,
-            timestamp: new Date(),
         })
     }
 
@@ -55,6 +54,24 @@ class ScoreBoard extends IScoreBoard {
                 ? { ...game, homeScore, awayScore }
                 : game
         )
+    }
+
+    getSummaryByTotalScore = () => {
+        const sortedByTotalScore = this.games.sort((a, b) => {
+            const aTotalScore = a.homeScore + a.awayScore
+            const bTotalScore = b.homeScore + b.awayScore
+            return (
+                bTotalScore - aTotalScore ||
+                this.games.indexOf(b) - this.games.indexOf(a)
+            )
+        })
+        const summary = sortedByTotalScore.map((game, index) => {
+            const ln = index ? '\n' : ''
+            return `${ln}${index + 1}. ${game.homeTeam} ${game.homeScore} - ${
+                game.awayTeam
+            } ${game.awayScore}`
+        })
+        return summary.join('')
     }
 
     /**

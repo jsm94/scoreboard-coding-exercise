@@ -35,6 +35,12 @@ class IScoreBoard {
      * @param {number} awayScore
      */
     updateScore(homeTeam, awayTeam, homeScore, awayScore) {}
+
+    /**
+     * Returns a summary order by total score, those games with the same total score
+     * will be returned ordered by the most recently added
+     */
+    getSummaryByTotalScore() {}
 }
 
 export default IScoreBoard
